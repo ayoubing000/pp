@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/css/loginstyle.css') }}">
+    <title>Login</title>
+</head>
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<body>
+<div class="parent_bloc">
+        <pre>
+          _______  _______  _        _______  _
+         (  ____ )(  ___  )( (    /|(  ____ \( \
+         | (    )|| (   ) ||  \  ( || (    \/| (
+         | (____)|| (___) ||   \ | || (__    | |
+         |  _____)|  ___  || (\ \) ||  __)   | |
+         | (      | (   ) || | \   || (      | |
+               | )      | )   ( || )  \  || (____/\| (____/\
+               |/       |/     \||/    )_)(_______/(_______/
+        </pre>
+</div>
+<div class="login_bloc">
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+
+        <div class="bloc_user_name">
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="USER NAME" autocomplete="username" />
+        </div>
+
+        <div class="bloc_passward">
+            <input type="password" id="password" name="_password"  placeholder="PASSWARD" required="required" autocomplete="current-password" />
+        </div>
+
+        <div class="bloc_button">
+            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

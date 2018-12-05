@@ -1,0 +1,9 @@
+dashboard_admin_homepage:
+    path:     /admin
+    defaults: { _controller: DashboardAdminBundle:Card:index }
+blog_list:
+    path:      /view/{id}
+    defaults : {_controller: DashboardAdminBundle:Card:pkgs}
+delete_v:
+    path:      /del/
+    defaults : {_controller: DashboardAdminBundle:Card:Del}

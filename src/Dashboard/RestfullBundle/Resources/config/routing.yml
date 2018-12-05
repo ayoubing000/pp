@@ -1,0 +1,4 @@
+dashboard_restfull_homepage:
+    path:     /rest
+    defaults: { _controller: DashboardRestfullBundle:Rest:CardInsert }
+    methods: POST

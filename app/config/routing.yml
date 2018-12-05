@@ -1,0 +1,14 @@
+dashboard_restfull:
+    resource: "@DashboardRestfullBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dashboard_user:
+    resource: "@DashboardUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dashboard_admin:
+    resource: "@DashboardAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

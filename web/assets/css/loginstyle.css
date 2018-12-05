@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(black 20%, gray);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login_bloc{
+    width: 400px;
+    max-width: 100%;
+    background-color: white;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 10%;
+    min-height: 200px;
+    box-shadow: 0px 0px 10px 0px black inset;
+    padding: 30px;
+}
+
+pre{
+    text-align: center;
+    margin-left: -100px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.bloc_user_name, .bloc_passward{
+    display: grid;
+}
+
+.parent_bloc{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+#username,#password{
+    height: 40px;
+    width: 90%;
+    margin: auto;
+    padding: 5px 15px;
+    margin: 15px auto;
+    border: none;
+    background-color: #f6f8f9;
+    transition: all 0.3s;
+}
+
+#username:focus{
+    box-shadow: 0px 0px 15px 0px #788083 inset;
+    transition: all 0.3s;
+}
+#password:focus{
+    box-shadow: 0px 0px 15px 0px #788083 inset;
+    transition: all 0.3s;
+}
+
+#username,#password::placeholder{
+    text-align: center;
+}
+
+.login_bloc h2{
+    text-align: center;
+}
+
+.bloc_button{
+    text-align: center;
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.bloc_button #_submit{
+    height: 40px;
+    width: 98%;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 0;
+    font-family: inherit;
+    background: black;
+    color: #fff;
+    border: none;
+    transition: all 0.3s;
+}
+
+.bloc_button #_submit:hover{
+    cursor: pointer;
+    background: #f6f8f9;
+    color: black;
+    border: 1px solid #788083;
+    transition: all 0.3s;
+}

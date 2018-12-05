@@ -1,0 +1,81 @@
+
+.dots{
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 40px;
+    display: none;
+    min-width : 146px ;
+    background-color: #f9f9f9;
+    float: left;
+    right: 18px;
+    overflow: auto;
+    margin-top: -15px;
+    padding: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dots li{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.dots_parent{
+    position: relative;
+}
+.dots_parent span{
+    display: block;
+    text-align: right;
+    cursor: pointer;
+}
+
+.active_dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.option:hover {
+    background: #2ac2d4;
+    color: #fff;
+    border: 1px solid #2ac2d4;
+}
+.option {
+    cursor: pointer;
+    min-width: 28px;
+    background: #fff;
+    color: #a1a3a5;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    vertical-align: central;
+    text-align: center;
+    margin: 0 5px;
+    padding: 4px 0px;
+    border: 1px solid #e2e7f1;
+}
+.progress{
+    height: 10px;
+    width: 100%;
+    background-color: lightgray;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.undo-delete{
+    margin-left: 10px;
+}
+.app-alert-message{
+    float: left;
+    margin-bottom: 10px;
+}
+.app-alert{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+}
