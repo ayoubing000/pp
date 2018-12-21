@@ -1,0 +1,3 @@
+dashboard_pp_homepage:
+    path:     /pp
+    defaults: { _controller: DashboardPpBundle:Default:index }
