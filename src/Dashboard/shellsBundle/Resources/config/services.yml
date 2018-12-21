@@ -1,0 +1,4 @@
+services:
+#    dashboardshells.example:
+#        class: Dashboard\shellsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

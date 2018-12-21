@@ -33,7 +33,8 @@
         "vich/uploader-bundle": "1.4.1",
         "kreait/firebase-php": "^1.2",
         "paragonie/random_compat": "2.0",
-        "friendsofsymfony/user-bundle": "~2.0"
+        "friendsofsymfony/user-bundle": "~2.0",
+        "illuminate/encryption": "^5.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

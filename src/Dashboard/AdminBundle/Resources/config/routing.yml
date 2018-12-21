@@ -7,3 +7,16 @@ blog_list:
 delete_v:
     path:      /del/
     defaults : {_controller: DashboardAdminBundle:Card:Del}
+opned_tr:
+    path:      /op/{id}
+    defaults : {_controller: DashboardAdminBundle:Card:Seen}
+fresh_da:
+    path:      /fresh/{id}
+    defaults : {_controller: DashboardAdminBundle:Card:Fresh}
+commentaire:
+    path:      /comm/
+    defaults: {_controller: DashboardAdminBundle:Card:Comment}
+update_comment:
+    path:      /up_comm/
+    defaults: {_controller: DashboardAdminBundle:Card:Save}
+

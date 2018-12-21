@@ -80,3 +80,48 @@ function animation() {
         $('.app-alert').remove();
     });
 }
+
+
+
+$('a#opened').click(function (e){
+    var target = $(e.currentTarget);
+    var url = target.attr('data-url-up');
+    console.log(url);
+    $.ajax({
+        url: url,
+        type: 'POST',
+        success: function(result) {
+            console.log(result.success);
+        }
+    });
+});
+$('a#fresh').click(function (e){
+    var target = $(e.currentTarget);
+    var url = target.attr('data-url-up');
+    console.log(url);
+    $.ajax({
+        url: url,
+        type: 'POST',
+        success: function(result) {
+            console.log(result.success);
+            location.reload();
+        }
+    });
+});
+
+$('a#comm').click(function (e) {
+    //console.log('teeeeeest');
+    var target = $(e.currentTarget);
+    var url =   target.attr('data-url');
+    var id =   target.attr('data-id');
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data :{'id':id},
+        success: function(result) {
+            console.log(result.comment);
+            $('.comment').val(result.comment);
+            $('#inp').val(id);
+        }
+    });
+})

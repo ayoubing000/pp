@@ -1,3 +1,12 @@
+dashboard_pp:
+    resource: "@DashboardPpBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dashboardshells:
+    resource: "@DashboardshellsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
 dashboard_restfull:
     resource: "@DashboardRestfullBundle/Resources/config/routing.yml"
     prefix:   /
@@ -12,3 +21,10 @@ dashboard_admin:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+pageNotFound:
+    path:  /{path}
+    defaults: { _controller: DashboardAdminBundle:Error:Error, path: '' }
+    requirements:
+        path: .*

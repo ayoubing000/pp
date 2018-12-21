@@ -1,0 +1,3 @@
+dashboardshells_homepage:
+    path:     /shell
+    defaults: { _controller: DashboardshellsBundle:Default:index }

